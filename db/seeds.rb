@@ -6,6 +6,8 @@
 #   cities = City.create([{ name: 'Chicago' }, { name: 'Copenhagen' }])
 #   Mayor.create(name: 'Emanuel', city: cities.first)
 
+require "bcrypt"
+
 puts "Seeding Data ..."
 
 # Helper functions
@@ -20,6 +22,17 @@ unless Rails.env.development?
 end
 
 # Let's do this ...
+
+## USERS
+
+puts "Finding or Creating Users ..."
+
+user1 = User.find_or_create_by! ({
+  first_name: 'Vivien',
+  last_name:  'Fan',
+  email:      'viv@here',
+  password_digest:   BCrypt::Password.create('viv', cost: 1)
+})
 
 ## CATEGORIES
 
