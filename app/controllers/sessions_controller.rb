@@ -1,17 +1,15 @@
 class SessionsController < ApplicationController
   def new
-    # @session = Sessoin.new
   end
 
   def create
-    @user = User.find_by_email params[:email]
-    redirect_to "#{params[:email]}"
-    # if @user #&& @user.authenticate(params[:password])
-    #   session[:user_id] = @user.id
-    #   redirect_to '/'
-    # else
-    #   redirect_to '/sessions/new'
-    # end
+    @user = User.find_by_email params[:sessions][:email]
+    if @user && @user.authenticate(params[:sessions][:password])
+      session[:user_id] = @user.id
+      redirect_to '/'
+    else
+      redirect_to '/sessions/new'
+    end
   end
 
   def destroy
