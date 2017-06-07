@@ -28,7 +28,7 @@
       </ul>
       <ul class="nav navbar-nav navbar-right">
         <% if !current_user %>
-          <li><%= link_to 'Login', controller: "sessions", action: "new"%></li>
+          <li><%= link_to 'Login', controller: "sessions", action: "new" %></li>
           <li><%= link_to 'Register', controller: "users", action: "new" %></li>
         <% else %>
           <li class="dropdown">
@@ -41,8 +41,7 @@
               <li><%= link_to 'Products',   [:admin, :products] %></li>
               <li><%= link_to 'Categories', [:admin, :categories] %></li>
               <li class="divider"></li>
-              <li><%= link_to 'Logout', [:admin, :root] %></li>
-              <!-- controller: "sessions", action: "destroy"%></li> -->
+              <li><%= link_to 'Logout', controller: "sessions", action: "destroy" %></li> -->
             </ul>
           </li>
           <li>
