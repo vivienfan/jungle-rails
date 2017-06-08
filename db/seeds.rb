@@ -6,8 +6,6 @@
 #   cities = City.create([{ name: 'Chicago' }, { name: 'Copenhagen' }])
 #   Mayor.create(name: 'Emanuel', city: cities.first)
 
-require "bcrypt"
-
 puts "Seeding Data ..."
 
 # Helper functions
@@ -25,14 +23,15 @@ end
 
 ## USERS
 
-puts "Finding or Creating Users ..."
+# puts "Finding or Creating Users ..."
 
-user1 = User.find_or_create_by! ({
-  first_name: 'Vivien',
-  last_name:  'Fan',
-  email:      'viv@here',
-  password_digest:   BCrypt::Password.create('viv', cost: 1)
-})
+# user1 = User.find_or_create_by! ({
+#   first_name: 'Vivien',
+#   last_name:  'Fan',
+#   email:      'viv@here',
+#   password:   'viv',
+#   password_confirm: 'viv'
+# })
 
 ## CATEGORIES
 
