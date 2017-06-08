@@ -43,10 +43,10 @@
             data-name="Jungle"
             data-locale="auto"
             <% if current_user %>
-              data-description="<%= current_user.first_name %> <%= current_user.last_name %>'s Jungle Order"
+              data-description="<%= current_user.first_name.upcase %> <%= current_user.last_name.upcase %>'s Jungle Order"
               data-email="<%= current_user.email %>"
             <% else %>
-              data-description="Anonymous User's Jungle Order"
+              data-description="VisitorX's Jungle Order"
             <% end %>
             data-currency="cad">
           </script>
