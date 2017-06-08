@@ -8,8 +8,13 @@ class ApplicationController < ActionController::Base
   end
   helper_method :current_user
 
+  def admin_user
+    @admin_user = session[:admin]
+  end
+  helper_method :admin_user
+
   def authorize
-    redirect_to root_path unless current_user
+    redirect_to root_path unless admin_user
   end
 
   private
