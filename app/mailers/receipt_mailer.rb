@@ -8,6 +8,6 @@ class ReceiptMailer < ApplicationMailer
       item.product = Product.find_by id: item.product_id
     end
     @url = url
-    mail(to: @order.email, subject: 'Jungle Order Receipt')
+    mail(to: @order.email, subject: "Jungle Order Receipt (Order#{order.id})")
   end
 end
