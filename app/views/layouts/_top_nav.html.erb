@@ -30,29 +30,20 @@
         <% if current_user %>
           <li><%= link_to 'Logout', session_path, method: :delete %></li>
         <% else %>
-          <% if !admin_user %>
-            <li><%= link_to 'Login', new_session_path %></li>
-            <li><%= link_to 'Register', new_user_path %></li>
-          <% end %>
-          <li class="dropdown">
-            <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">
-              <span class="text-danger"><%= fa_icon 'lock', text: 'Admin' %></span>
-              <span class="caret"></span>
-            </a>
-            <ul class="dropdown-menu">
-              <% if !admin_user %>
-                <li><%= link_to 'Login as Admin', new_administrator_path %></li>
-              <% else %>
-                <li><%= link_to 'Dashboard',  [:admin, :root] %></li>
-                <li><%= link_to 'Products',   [:admin, :products] %></li>
-                <li><%= link_to 'Categories', [:admin, :categories] %></li>
-                <li class="divider"></li>
-                <!-- logout admin -->
-                <li><%= link_to 'Logout', administrator_path, method: :delete %></li>
-              <% end %>
-            </ul>
-          </li>
+          <li><%= link_to 'Login', new_session_path %></li>
+          <li><%= link_to 'Register', new_user_path %></li>
         <% end %>
+        <li class="dropdown">
+          <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">
+            <span class="text-danger"><%= fa_icon 'lock', text: 'Admin' %></span>
+            <span class="caret"></span>
+          </a>
+          <ul class="dropdown-menu">
+            <li><%= link_to 'Dashboard',  [:admin, :root] %></li>
+            <li><%= link_to 'Products',   [:admin, :products] %></li>
+            <li><%= link_to 'Categories', [:admin, :categories] %></li>
+          </ul>
+        </li>
         <li>
           <%= link_to cart_path do %>
             <%= fa_icon "shopping-cart" %> My Cart (<%= cart.size %>)

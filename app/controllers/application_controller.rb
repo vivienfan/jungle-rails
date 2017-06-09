@@ -8,13 +8,12 @@ class ApplicationController < ActionController::Base
   end
   helper_method :current_user
 
-  def admin_user
-    @admin_user = session[:admin]
-  end
-  helper_method :admin_user
-
   def authorize
-    redirect_to root_path unless admin_user
+    authenticate_or_request_with_http_basic do |user, password|
+      if user == ENV['ADMIN_USERNAME'] && password == ENV['ADMIN_PASSWORD']
+        true
+      end
+    end
   end
 
   private
