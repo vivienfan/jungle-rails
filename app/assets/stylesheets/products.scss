@@ -46,6 +46,7 @@ main section.orders-show{
         transition: all 0.3s;
 
         .actions {
+
         }
       }
 
@@ -74,6 +75,7 @@ main section.orders-show{
       }
 
       .description {
+
       }
 
       &:hover {
@@ -111,4 +113,9 @@ main section.review {
   .review-description {
     font-size: 1.1em;
   }
+}
+
+main section.login-form,
+main section.register-form {
+
 }
