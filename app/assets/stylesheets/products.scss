@@ -1,5 +1,11 @@
 main section.products-index,
-main section.categories-show {
+main section.admin-products-index,
+main section.admin-products-new,
+main section.categories-show,
+main section.admin-categories-index,
+main section.admin-categories-new,
+main section.cart-show,
+main section.orders-show{
 
   .products {
     display:         flex;
@@ -38,9 +44,12 @@ main section.categories-show {
         width: 100%;
         opacity: 0.3;
         transition: all 0.3s;
+
+        .actions {
+        }
       }
 
-      aside.sold_out {
+      .sold_out {
         position: absolute;
         top: 0;
         left: 0;
@@ -53,7 +62,7 @@ main section.categories-show {
         color: white;
       }
 
-      aside.price {
+      .price {
         position: absolute;
         top: 0;
         right: 0;
@@ -62,6 +71,9 @@ main section.categories-show {
         border-top-right-radius: 4px;
         border-bottom-left-radius: 20px;
         font-size: 0.8em;
+      }
+
+      .description {
       }
 
       &:hover {
@@ -86,4 +98,17 @@ main section.products-show {
   }
 }
 
+main section.review {
+  margin-top: 20px;
+  margin-bottom: 20px;
+  display: flex;
+  flex-direction: column;
+  .review-rating {
+    display: inline;
+  }
 
+  .review-info,
+  .review-description {
+    font-size: 1.1em;
+  }
+}
