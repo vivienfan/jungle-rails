@@ -32,6 +32,13 @@ user1 = User.find_or_create_by! ({
   password_digest:   Faker::Internet.password,
 })
 
+user2 = User.find_or_create_by! ({
+  first_name: Faker::Name.first_name,
+  last_name:  Faker::Name.last_name,
+  email:      Faker::Internet.email,
+  password_digest:   Faker::Internet.password,
+})
+
 ## CATEGORIES
 
 puts "Finding or Creating Categories ..."
@@ -156,22 +163,22 @@ Review.create!({
 })
 
 Review.create!({
-  product_id: 2,
-  user_id: 1,
+  product_id: 1,
+  user_id: 2,
   description: Faker::Hipster.paragraph(4),
   rating: 2
 })
 
 Review.create!({
-  product_id: 3,
+  product_id: 2,
   user_id: 1,
   description: Faker::Hipster.paragraph(4),
   rating: 3
 })
 
 Review.create!({
-  product_id: 4,
-  user_id: 1,
+  product_id: 2,
+  user_id: 2,
   description: Faker::Hipster.paragraph(4),
   rating: 4
 })
