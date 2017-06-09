@@ -23,15 +23,14 @@ end
 
 ## USERS
 
-# puts "Finding or Creating Users ..."
+puts "Finding or Creating Users ..."
 
-# user1 = User.find_or_create_by! ({
-#   first_name: 'Vivien',
-#   last_name:  'Fan',
-#   email:      'viv@here',
-#   password:   'viv',
-#   password_confirm: 'viv'
-# })
+user1 = User.find_or_create_by! ({
+  first_name: Faker::Name.first_name,
+  last_name:  Faker::Name.last_name,
+  email:      Faker::Internet.email,
+  password_digest:   Faker::Internet.password,
+})
 
 ## CATEGORIES
 
@@ -144,5 +143,37 @@ cat3.products.create!({
   price: 2_483.75
 })
 
+
+puts "Re-creating Reviews ..."
+
+Review.destroy_all
+
+Review.create!({
+  product_id: 1,
+  user_id: 1,
+  description: Faker::Hipster.paragraph(4),
+  rating: 1
+})
+
+Review.create!({
+  product_id: 2,
+  user_id: 1,
+  description: Faker::Hipster.paragraph(4),
+  rating: 2
+})
+
+Review.create!({
+  product_id: 3,
+  user_id: 1,
+  description: Faker::Hipster.paragraph(4),
+  rating: 3
+})
+
+Review.create!({
+  product_id: 4,
+  user_id: 1,
+  description: Faker::Hipster.paragraph(4),
+  rating: 4
+})
 
 puts "DONE!"
