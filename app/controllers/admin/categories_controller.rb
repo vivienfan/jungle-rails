@@ -14,6 +14,7 @@ class Admin::CategoriesController < Admin::BaseController
     if @category.save
       redirect_to [:admin, :categories], notice: 'Category created!'
     else
+      flash[:danger] = @category.errors.to_a
       render :new
     end
   end
