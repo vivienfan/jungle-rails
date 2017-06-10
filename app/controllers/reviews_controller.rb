@@ -8,7 +8,7 @@ class ReviewsController < ApplicationController
     if @review.save
       redirect_to root_path
     else
-      flash[:danger] = @review.errors.to_a
+      flash[:danger] = @review.errors.full_messages.first
       redirect_to product_path product_id
     end
   end

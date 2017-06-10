@@ -12,9 +12,7 @@
 
   <main class="container">
     <% flash.each do |key, value| %>
-      <% value.each do |msg| %>
-        <div class="alert alert-<%= key %>"><%= msg %></div>
-      <% end %>
+      <div class="alert alert-<%= key %>"><%= value %></div>
     <% end %>
     <%= yield %>
   </main>
