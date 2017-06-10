@@ -3,17 +3,35 @@ class ReviewsController < ApplicationController
 
   def create
     @product = Product.find product_id
-    @review = @product.reviews.new(rating: params[:rating], description: params[:review][:description])
+    @review = @product.reviews.new(rating: rating, description: description)
     @review.user = current_user
-    if @review.save
-      redirect_to product_path product_id
-    else
+    if @review.save!
       redirect_to root_path
+    else
+      redirect_to product_path product_id
     end
+  end
+
+  def destroy
+    @review = Review.find review_id
+    @review.destroy
+    redirect_to product_path product_id, notice: 'Review deleted!'
   end
 
   private
   def product_id
     params[:product_id]
+  end
+
+  def rating
+    params[:review][:rating]
+  end
+
+  def description
+    params[:review][:description]
+  end
+
+  def review_id
+    params[:id]
   end
 end
