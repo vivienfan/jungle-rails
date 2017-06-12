@@ -8,6 +8,7 @@ RSpec.describe User, type: :model do
       @email = 'example@email'
       @password = 'my_secret'
       @password_diff = 'another_secret'
+      @password_short = 'a'
     end
 
     it 'should have a password fields' do
@@ -95,6 +96,18 @@ RSpec.describe User, type: :model do
       user_b.save
 
       expect(user_b.errors.full_messages[0].downcase).to include('email')
+    end
+
+    it 'password should have minimum length' do
+      user = User.new
+      user.first_name = @first_name
+      user.last_name = @last_name
+      user.email = @email
+      user.password = @password_short
+      user.password_confirmation = @password_short
+      user.save
+
+      expect(user.errors.full_messages[0].downcase).to include('password')
     end
   end
 end
