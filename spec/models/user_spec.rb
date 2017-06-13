@@ -110,5 +110,43 @@ RSpec.describe User, type: :model do
       expect(user.errors.full_messages[0].downcase).to include('password')
     end
   end
+
+  describe '.authenticate_with_credentials' do
+    before :each do
+      @first_name = 'first'
+      @last_name = 'last'
+      @email = 'eXample@email'
+      @password = 'my_secret'
+      @password_diff = 'another_secret'
+
+      @user = User.new
+      @user.first_name = @first_name
+      @user.last_name = @last_name
+      @user.email = @email
+      @user.password = @password
+      @user.password_confirmation = @password
+      @user.save
+    end
+
+    it 'wrong password should not login' do
+      @user = User.authenticate_with_credentials(@email, @password_diff)
+      expect(@user).to be_falsey
+    end
+
+    it 'leading white space in email should be omitted' do
+      @user = User.authenticate_with_credentials("  #{@email}", @password)
+      expect(@user).to be_truthy
+    end
+
+    it 'trailing white space in email should be omitted' do
+      @user = User.authenticate_with_credentials("#{@email}  ", @password)
+      expect(@user).to be_truthy
+    end
+
+    it 'email in different cases should still login' do
+      @user = User.authenticate_with_credentials(@email.upcase, @password)
+      expect(@user).to be_truthy
+    end
+  end
 end
 

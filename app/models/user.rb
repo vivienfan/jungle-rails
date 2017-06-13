@@ -8,5 +8,17 @@ class User < ActiveRecord::Base
   validates :password,        presence: true, length: { minimum: 6 }
   validates :password_confirmation, presence: true, length: { minimum: 6 }
 
+  before_save :to_lower
+
   has_secure_password
+
+  def self.authenticate_with_credentials (email, password)
+    user = find_by_email(email.lstrip.rstrip.downcase)
+    user.authenticate(password)
+  end
+
+  private
+  def to_lower
+    self.email.downcase!
+  end
 end
