@@ -16,7 +16,7 @@ RSpec.feature "ProductDetails", type: :feature, js: true do
     end
   end
 
-  scenario "They see all products" do
+  scenario "Redirect to product details page when click on product name" do
     # ACT
     visit root_path
     click_on @category.products.first.name
@@ -26,4 +26,13 @@ RSpec.feature "ProductDetails", type: :feature, js: true do
     # expect(page).to have_css 'article.product', count: 10
   end
 
+  scenario "Redirect to product details page when click on details" do
+    # ACT
+    visit root_path
+    click_on('Details', match: :first)
+
+    # DEBUG / VERIFY
+    # products are pushed at the top
+    expect(page.current_path).to eq product_path(@category.products.last.id)
+  end
 end
