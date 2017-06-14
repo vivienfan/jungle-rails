@@ -1,6 +1,6 @@
 require 'rails_helper'
 
-RSpec.feature "AddToCarts", type: :feature do
+RSpec.feature "AddToCarts", type: :feature, js: true do
   # SETUP
   before :each do
     @category = Category.create! name: 'Apparel'
@@ -16,13 +16,22 @@ RSpec.feature "AddToCarts", type: :feature do
     end
   end
 
+  scenario "Cart counter default is zero" do
+    # ACT
+    visit root_path
+
+    # DEBUG / VERIFY
+    expect(page).to have_content "My Cart (0)"
+    save_screenshot
+  end
+
   scenario "Cart counter increases by one after click 'Add to Cart'" do
     # ACT
     visit root_path
-    click_on 'Add'
+    click_on('Add', match: :first)
 
     # DEBUG / VERIFY
-    # expect(page.current_path).to eq product_path(@category.products.first.id)
-    # expect(page).to have_css 'article.product', count: 10
+    expect(page).to have_content "My Cart (1)"
+    save_screenshot
   end
 end

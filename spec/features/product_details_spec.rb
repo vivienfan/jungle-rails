@@ -23,7 +23,7 @@ RSpec.feature "ProductDetails", type: :feature, js: true do
 
     # DEBUG / VERIFY
     expect(page.current_path).to eq product_path(@category.products.first.id)
-    # expect(page).to have_css 'article.product', count: 10
+    save_screenshot
   end
 
   scenario "Redirect to product details page when click on details" do
@@ -34,5 +34,6 @@ RSpec.feature "ProductDetails", type: :feature, js: true do
     # DEBUG / VERIFY
     # products are pushed at the top
     expect(page.current_path).to eq product_path(@category.products.last.id)
+    save_screenshot
   end
 end
