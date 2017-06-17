@@ -25,18 +25,22 @@ end
 
 puts "Finding or Creating Users ..."
 
+password1 = Faker::Internet.password
 user1 = User.find_or_create_by! ({
   first_name: Faker::Name.first_name,
   last_name:  Faker::Name.last_name,
   email:      Faker::Internet.email,
-  password_digest:   Faker::Internet.password,
+  password:   password1,
+  passwrod_confirmation: password1
 })
 
+password2 = Faker::Internet.password
 user2 = User.find_or_create_by! ({
   first_name: Faker::Name.first_name,
   last_name:  Faker::Name.last_name,
   email:      Faker::Internet.email,
-  password_digest:   Faker::Internet.password,
+  password:   password2,
+  passwrod_confirmation: password2
 })
 
 ## CATEGORIES
