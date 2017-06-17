@@ -31,7 +31,8 @@ user1 = User.find_or_create_by! ({
   last_name:  Faker::Name.last_name,
   email:      Faker::Internet.email,
   password:   password1,
-  password_confirmation: password1
+  password_confirmation: password1,
+  password_digist: password1
 })
 
 password2 = Faker::Internet.password
@@ -40,7 +41,8 @@ user2 = User.find_or_create_by! ({
   last_name:  Faker::Name.last_name,
   email:      Faker::Internet.email,
   password:   password2,
-  password_confirmation: password2
+  password_confirmation: password2,
+  password_digist: password2
 })
 
 ## CATEGORIES
