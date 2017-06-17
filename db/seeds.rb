@@ -25,25 +25,27 @@ end
 
 puts "Finding or Creating Users ..."
 
+User.destroy_all
+
 password1 = Faker::Internet.password
-user1 = User.find_or_create_by! ({
+user1 = User.new ({
   first_name: Faker::Name.first_name,
   last_name:  Faker::Name.last_name,
   email:      Faker::Internet.email,
   password:   password1,
   password_confirmation: password1,
-  password_digist: password1
 })
+user1.save
 
 password2 = Faker::Internet.password
-user2 = User.find_or_create_by! ({
+user2 = User.new ({
   first_name: Faker::Name.first_name,
   last_name:  Faker::Name.last_name,
   email:      Faker::Internet.email,
   password:   password2,
   password_confirmation: password2,
-  password_digist: password2
 })
+user2.save
 
 ## CATEGORIES
 
