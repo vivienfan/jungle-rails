@@ -11,7 +11,7 @@
     <% end %>
   </span>
   <span class="review-info">By <b><%= user.first_name %> <%= user.last_name%></b> on <%= review.created_at %>
-    <% if current_user.id == review.user_id %>
+    <% if current_user && current_user.id == review.user_id %>
       <%= link_to fa_icon('trash'), [product, review], class: 'btn btn-sm btn-danger', method: :delete, data: { confirm: "Are you sure?" } %>
     <% end %>
   </span>
