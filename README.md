@@ -3,42 +3,39 @@
 A mini e-commerce application built with Rails 4.2.
 
 ## Final Product
+* All the products posted on Jungle are listed at the main page. Clients can add products into their carts if they are not sold out. 
 !["main-page"](https://github.com/vivienfan/jungle-rails/blob/master/doc/main_page.png?raw=true)
-All the products posted on Jungle are listed at the main page. Clients can add a product to the cart if it is not sold out. 
 
+* Clients can sign up or login, which allows them to review products, make credit card payments with their name and email automatically filled up.
 !["sign_up"](https://github.com/vivienfan/jungle-rails/blob/master/doc/sign_up.png?raw=true)
 !["login"](https://github.com/vivienfan/jungle-rails/blob/master/doc/login.png?raw=true)
-Clients can sign up or login, which allows them to review products, make credit card payments with their name and email automatically filled up.
 
+* Clients can view the details and reviews from other clients for all products. 
 !["product"](https://github.com/vivienfan/jungle-rails/blob/master/doc/product.png?raw=true)
-Clients can view the details and reviews from other clients for all products. 
 
+* Clients can view products belongs to a certain category.
 !["category"](https://github.com/vivienfan/jungle-rails/blob/master/doc/category.png?raw=true)
-Clients can view products belongs to a certain category.
 
+* Clients can add and remove items from their cart, checkout and pay for the order. 
 !["cart"](https://github.com/vivienfan/jungle-rails/blob/master/doc/cart.png?raw=true)
-clients can add and remove items from their cart, checkout and pay for the order. 
 
+* Clients can use online credit card payments to make purchases. An logged-in user would not need to fill in email for this.
 !["strip"](https://github.com/vivienfan/jungle-rails/blob/master/doc/strip.png?raw=true)
-Clients can use online credit card payments to make purchases. An logged-in user would not need to fill in email for this.
 
+* After a successful purchase, an order details page will be displayed, clients will also receive an e-receipt via email.
+!["order"](https://github.com/vivienfan/jungle-rails/blob/master/doc/order.png?raw=true)
 !["email-receipt"](https://github.com/vivienfan/jungle-rails/blob/master/doc/email-receipt.png?raw=true)
-clients will receive and receipt via email after a successful purchase.
 
+* Admin users of Jungle can login and make product and category changes.
 !["admin-login"](https://github.com/vivienfan/jungle-rails/blob/master/doc/admin_login.png?raw=true)
-Admin users of Jungle can login and make product and category changes.
 
-!["admin-category"](https://github.com/vivienfan/jungle-rails/blob/master/doc/admin_categories.png?raw=true)
-Admin users can view details of call categories.
-
+* Admin users can view details of call categories, and create new ones.
+!["admin-category"](https://github.com/vivienfan/jungle-rails/blob/master/doc/admin_categories.png?raw=true) 
 !["admin-new_category"](https://github.com/vivienfan/jungle-rails/blob/master/doc/admin_new_category.png?raw=true)
-Admin users can create new categories.
 
+* Admin users can view details of all products, and post new ones.
 !["admin-product"](https://github.com/vivienfan/jungle-rails/blob/master/doc/admin_product.png?raw=true)
-Admin users can view details of all products.
-
 !["admin-new-product"](https://github.com/vivienfan/jungle-rails/blob/master/doc/admin_new_product.png?raw=true)
-Admin users can post new products.
 
 ## Setup
 
