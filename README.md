@@ -8,6 +8,7 @@ A mini e-commerce application built with Rails 4.2.
 
 
 * Clients can sign up or login, which allows them to review products, make credit card payments with their name and email automatically filled up.
+
 | Sign Up | Login |
 |:---:|:---:|
 | !["sign_up"](https://github.com/vivienfan/jungle-rails/blob/master/doc/sign_up.png?raw=true) | !["login"](https://github.com/vivienfan/jungle-rails/blob/master/doc/login.png?raw=true) |
